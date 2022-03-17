@@ -1,0 +1,728 @@
+avg.html
+========================
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>average</title>
+    <link rel="stylesheet" href="static/common.css">
+</head>
+<body>
+{% include "nav.html" %}
+      <div class="table">
+
+<table>
+    {% block cntent %}
+    <tr>
+        <th>
+            Player
+        </th>
+        <th>
+           Best_Avg
+        </th>
+    </tr>
+    {% for i in avg%}
+     <tr>
+        <td>
+            {{i[0]}}
+        </td>
+        <td>
+           {{i[1]}}
+        </td>
+    </tr>
+    {% endfor%}
+    {% endblock %}
+</table>
+      </div>
+</body>
+</html>
++++++++++++++++++++++++++++++++++++++++++++++++++++++
+high_score.html
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hig_score</title>
+        <link rel="stylesheet" href="static/common.css">
+    <link rel="stylesheet" href="/static/home.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+ {% include "nav.html" %}
+      <div class="table">
+
+<table>
+
+    <tr>
+       <th>Player</th>
+        <th>High Score</th>
+    </tr>
+{% block content %}
+
+    {% for i  in hig_score %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+    </tr>
+    {% endfor %}
+        {% endblock %}
+
+
+
+</table>
+      </div>
+      <script type="text/javascript" src="/static/home.js"></script>
+
+</body>
+</html>
++++++++++++++++++++++++++++++++
+index.html
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Home</title>
+   </head>
+   <body id="body">
+      {% include "nav.html" %}
+      <div class="main">
+         <!--          <form method="post" action="/search">-->
+         <!--                       <input class="search" name="name" type="search" placeholder="Player stats" >-->
+         <!--                        <input type="submit"  value="search">-->
+         <!--          </form>-->
+      </div>
+      <div class="stats-box">
+         <div class="stats-list">
+         </div>
+      </div>
+   </body>
+</html>
+++++++++++++++++++++++++++++++=
+most_runs.html
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Most Runs</title>
+      <link rel="stylesheet" href="static/common.css">
+   </head>
+   <body>
+      {% include "nav.html" %}
+      <div class="table">
+         <table>
+            <tr>
+               <th> Player </th>
+               <th> Runs </th>
+            </tr>
+            {% block content %}
+            {% for i  in runs %}
+            <tr>
+               <td>{{i[0]}}</td>
+               <td>{{i[1]}}</td>
+            </tr>
+            {% endfor %}
+            {% endblock %}
+         </table>
+      </div>
+   </body>
+</html>
++++++++++++++++++++++++++++++++++++
+most_wickets.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Most_Wickets</title>
+            <link rel="stylesheet" href="static/common.css">
+
+</head>
+<body>
+ {% include "nav.html" %}
+      <div class="table">
+
+<table>
+    <tr>
+      <th> Player </th>
+        <th> Wickets </th>
+    </tr>
+    {% block content %}
+
+    {% for i  in wickets %}
+    <tr>
+        <td>{{i[0]}}</td>
+        <td>{{i[1]}}</td>
+    </tr>
+    {% endfor %}
+        {% endblock %}
+
+</table>
+      </div>
+</body>
+
+</html>
+
+++++++++++++++++++++
+
+nav.html
+
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Title</title>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <style>
+         @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+         @import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300&display=swap");
+         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+         * {
+         margin: 0px;
+         padding: 0px;
+         box-sizing: border-box;
+         }
+         #body {
+         margin: auto;
+         }
+         .material-icons {
+         vertical-align: middle;
+         }
+         .main-nav {
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         background-color: aqua;
+         width: 100%;
+         }
+         .main-nav-item {
+         margin: auto 30px;
+         padding: 10px;
+         font-family: "Oxygen", sans-serif;
+         font-size: medium;
+         border-bottom: 2px solid aqua;
+         }
+         .main-nav-item:hover {
+         box-sizing: border-box;
+         border-bottom: 2px solid black;
+         cursor: pointer;
+         }
+         .main {
+         width: 600px;
+         height: 600px;
+         display: flex;
+         flex-direction: row;
+         justify-content: center;
+         align-items: center;
+         margin: auto;
+         }
+         <!--.search {-->
+         <!--  width: 200px;-->
+         <!--  height: 50px;-->
+         <!--  display: flex;-->
+         <!--  flex-direction: row;-->
+         <!--  align-items: center;-->
+         <!--  justify-content: center;-->
+         <!--  background-color: rgb(0, 255, 55);-->
+         <!--  border: 2px solid red;-->
+         <!--  padding: 10px;-->
+         <!--  margin: 10px;-->
+         <!--  font-size: larger;-->
+         <!--}-->
+         .stats {
+         position: relative;
+         }
+         .stats-box {
+         margin: auto;
+         width: 50vw;
+         height: 50vh;
+         display: none;
+         position: absolute;
+         top: 10%;
+         left: 25%;
+         font-weight: bolder;
+         font-family: "Montserrat", sans-serif;
+         overflow-y: scroll;
+         }
+         .stats-list {
+         margin-top: 0px;
+         }
+         .inside-stats {
+         position: absolute;
+         top: 70px;
+         width: 200px;
+         left: -15px;
+         display: none;
+         z-index:10;
+         }
+         .inside-stats ul li {
+         list-style: none;
+         text-align: center;
+         padding: 10px;
+         }
+         .inside-stats ul:hover {
+         }
+         .inside-stats ul li :hover {
+         background-color: white;
+         cursor: pointer;
+         color: blue;
+         }
+         input
+         {
+         font-size: 20px;
+         }
+         a
+         {
+         font-family: 'Open Sans', sans-serif;
+         text-decoration: none;
+         background-color: azure;
+         color: black;
+         border: 2px solid aquamarine;
+         padding:8px;
+         border-radius:10px;
+         font-size:14px;
+         padding: 10px;
+         font-weight: bolder;
+         vertical-align: middle;
+         display: inline-block;
+         }
+         .table
+         {
+         position: absolute;
+         width: 600px;
+         height: 600px;
+         overflow-y: scroll;
+         border: 2px solid black;
+         top: 20vh;
+         left: 30vw;
+         z-index:-20;
+         }
+         <!--           a-->
+         <!--           {-->
+         <!--              text-decoration: none;-->
+         <!--              background-color: azure;-->
+         <!--              color: aqua;-->
+         <!--              border: 2px solid aquamarine;-->
+         <!--           }-->
+         table
+         {
+         width: 100%;
+         height: 100%;
+         font-family: 'Times New Roman', Times, serif;
+         }
+         td
+         {
+         text-align:center;
+         cursor: pointer;
+         background-color: aquamarine;
+         }
+         td:hover
+         {
+         background-color:aqua;
+         }
+         th
+         {
+         background-color: aqua;
+         }
+         .search
+         {
+         position:relative;
+         padding: 10px 0px 0px 10px;
+         font-weight: bolder;
+         border:none;
+         vertical-align: middle;
+         }
+         input[type="search"]
+         {
+         text-decoration: none;
+         background-color: azure;
+         color: black;
+         border: 2px solid aquamarine;
+         padding:8px;
+         border-radius:10px;
+         font-size:14px;
+         padding: 10px;
+         font-weight: bolder;
+         vertical-align: middle;
+         display: inline-block;
+         }
+         .search:hover
+         {
+         border:none;
+         }
+         .s-icon
+         {
+         position:absolute;
+         right: 0px;
+         top:20px;
+         }
+      </style>
+   </head>
+   <body>
+      <nav class="main-nav">
+         <div class="schedule main-nav-item">
+            <a href="schedule">   <i class="material-icons">calendar_view_day</i>schedule</a>
+         </div>
+         <div class="stats main-nav-item">
+            <a href="#">   <i class="material-icons">sports_cricket</i> Tournment Stats</a>
+            <div class="inside-stats">
+               <ul>
+                  <li>
+                     <a href="/runs">Runs</a>
+                  </li>
+                  <li>
+                     <a href="/wickets">Wickets</a>
+                  </li>
+                  <li>
+                     <a href="/avg">Average</a>
+                  </li>
+                  <li>
+                     <a href="/hig_score">Higest Score</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+         <div class="team-stat main-nav-item"  >
+            <a href="/points_table">  <i class="material-icons">format_list_numbered_rtl</i>Points Table</a>
+         </div>
+         <div class="search main-nav-item"  >
+            <div class="search_in">
+               <form method="post" action="/search">
+                  <input type="search" name="name" placeholder="search" >
+               </form>
+               <div class="s-icon">
+                  <span class="material-icons">
+                  search
+                  </span>
+               </div>
+            </div>
+         </div>
+      </nav>
+      <script type="text/javascript" src="/static/home.js"></script>
+   </body>
+</html>
+
++++++++++++++++++++++++++++
+points_table.html
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>points_table</title>
+       <style>
+                 .table
+           {
+              position: absolute;
+              width: 600px;
+              height: 600px;
+              overflow-y: scroll;
+              border: 2px solid black;
+              top: 20vh;
+              left: 30vw;
+
+
+           }
+            table
+           {
+              width: 100%;
+              height: 100%;
+              font-family: 'Times New Roman', Times, serif;
+
+           }
+           td
+           {
+            text-align:center;
+            cursor: pointer;
+            background-color: aquamarine;
+           }
+            td:hover
+           {
+            background-color:aqua;
+           }
+           th
+           {
+              background-color: aqua;
+           }
+       </style>
+   </head>
+   <body>
+    {% include "nav.html" %}
+    <div class="table">
+      {% block content%}
+      <table>
+         <tr>
+            <th>Team</th>
+            <th>Played</th>
+            <th>Won</th>
+            <th>Lost</th>
+            <th>Points</th>
+         </tr>
+         {% for i in points_table %}
+         <tr>
+            <td>
+               {{i[0]}}
+            </td>
+            <td>
+               {{i[1]}}
+            </td>
+            <td>
+               {{i[2]}}
+            </td>
+            <td>
+               {{i[3]}}
+            </td>
+            <td>
+               {{i[4]}}
+            </td>
+         </tr>
+         {% endfor %}
+      </table>
+      {% endblock %}
+    </div>
+   </body>
+</html>
+
+++++++++++++++++++++++++++++++++++
+schedule.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>schedule</title>
+<!--    <link rel="stylesheet" href="/static/schedule.css">-->
+       <link rel="stylesheet" href="static/common.css">
+    <style>
+
+
+
+    </style>
+
+</head>
+<body>
+ {% include "nav.html" %}
+{% block content %}
+      <div class="schedule-box">
+         <div class="schedule-list">
+            <table>
+               <tr>
+                  <th>Team-1 </th>
+                  <th>Team-2</th>
+                  <th>Date & time</th>
+                  <th>Venue</th>
+               </tr>
+                {% for i in n %}
+               <tr>
+                  <td> {{i[0]}} </td>
+                  <td>{{i[1]}} </td>
+                  <td>{{i[2]}}</th>
+                  <td>{{i[3]}}</td>
+                   {% endfor %}
+
+               </tr>
+            </table>
+         </div>
+      </div>
+{% endblock %}
+</body>
+</html>
+
++++++++++++++++++++++++++++++++++++++
+
+search.html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+    </style>
+            <link rel="stylesheet" href="static/common.css">
+
+</head>
+<body>
+{% include "nav.html" %}
+
+      <div class="table">
+
+<table>
+
+
+
+{% block content %}
+
+    {% for i  in search %}
+    <tr><th>Name</th><td>{{i[0]}}</td></tr>
+    <tr><th>Runs</th><td>{{i[1]}}</td></tr>
+    <tr><th>Higest</th><td>{{i[2]}}</td></tr>
+    <tr><th>50's</th><td>{{i[3]}}</td></tr>
+    <tr><th>100's</th><td>{{i[4]}}</td></tr>
+    <tr><th>Batting Avg</th><td>{{i[5]}}</td></tr>
+     <tr><th>Strike Rate</th><td>{{i[6]}}</td></tr>
+    <tr><th>overs bowled</th><td>{{i[7]}}</td></tr>
+    <tr><th>Wickets</th><td>{{i[8]}}</td></tr>
+    <tr><th>Maiden's</th><td>{{i[9]}}</td></tr>
+    <tr><th>Economy</th><td>{{i[10]}}</td></tr>
+    <tr><th>Best</th><td>{{i[11]}}</td></tr>
+    <tr><th>Points</th><td>{{i[12]}}</td></tr>
+
+
+    {% endfor %}
+        {% endblock %}
+
+
+
+</table>
+      </div>
+</body>
+</html>
+
+
+++++++++++++++++++++++++++++++++++++++++++
+
+home.py
+
+from flask import *
+from flask_mysqldb import MySQL
+app = Flask(__name__)
+app.config['MYSQL_USER'] = "root"
+app.config['MYSQL_PASSWORD'] = "Kanna@123456"
+app.config['MYSQL_HOST'] = "localhost"
+app.config['MYSQL_DB'] = "cricket_tournment"
+mysql = MySQL(app)
+
+
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/schedule",methods=['POST', 'GET'])
+def schedule():
+
+
+
+        cur = mysql.connection.cursor()
+        query = "select team_1,team_2,timings,venue from programme"
+
+        cur.execute(query)
+        n=cur.fetchall()
+        print(n)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('schedule.html',n=n))
+        return res
+@app.route("/runs",methods=['POST', 'GET'])
+def MostRuns():
+
+
+
+        cur = mysql.connection.cursor()
+        query = "  SELECT player_name, runs FROM players INNER JOIN batting_stats ON players.id = batting_stats.batsman_id ORDER BY batting_stats.runs DESC ;"
+
+        cur.execute(query)
+        runs=cur.fetchall()
+        print(runs)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('most_runs.html', runs=runs))
+        return res
+@app.route("/wickets",methods=['POST', 'GET'])
+def MostWickets():
+
+
+
+        cur = mysql.connection.cursor()
+        query = """SELECT player_name, wickets FROM players INNER JOIN bowling_stats ON
+                 players.id= bowling_stats.bowler_id ORDER BY bowling_stats.wickets DESC """
+
+        cur.execute(query)
+        wickets=cur.fetchall()
+        print(wickets)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('most_wickets.html',wickets=wickets))
+        return res
+@app.route("/hig_score",methods=['POST', 'GET'])
+def HighScore():
+
+
+
+        cur = mysql.connection.cursor()
+        query = """SELECT player_name,highest FROM players INNER JOIN batting_stats ON players.id = batting_stats.batsman_id ORDER BY batting_stats.highest DESC  """
+
+        cur.execute(query)
+        hig_score=cur.fetchall()
+        print(hig_score)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('high_score.html',hig_score=hig_score))
+        return res
+
+
+@app.route("/avg",methods=['POST', 'GET'])
+def avg():
+
+
+
+        cur = mysql.connection.cursor()
+        query = """   SELECT player_name, average FROM players INNER JOIN batting_stats ON players.id = batting_stats.batsman_id ORDER BY batting_stats.average DESC ;  """
+
+        cur.execute(query)
+        avg=cur.fetchall()
+        print(avg)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('avg.html',avg=avg))
+        return res
+
+@app.route("/points_table",methods=['POST', 'GET'])
+def points_table():
+
+
+
+        cur = mysql.connection.cursor()
+        query = """
+        SELECT team, played, won , lost , points FROM teams ORDER BY points DESC ;
+        """
+
+        cur.execute(query)
+        points_table=cur.fetchall()
+        print(points_table)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('points_table.html',points_table=points_table))
+        return res
+
+@app.route("/search",methods=['POST', 'GET'])
+def search():
+    if (request.method == 'POST'):
+        form=request.form
+        name=form['name']
+        cur = mysql.connection.cursor()
+
+        print("name", name)
+
+        cur.execute(f"Select player_name, runs, highest, fifties, hundreds, average, strike_rate, overs, wickets, maidens, economy, best , points from players, bowling_stats,batting_stats where players.id =batting_stats.batsman_id  and players.id =bowling_stats.bowler_id and players.player_name like '%{name}%'");
+        search=cur.fetchall()
+        print(search)
+        mysql.connection.commit()
+        cur.close()
+        res=make_response(render_template('search.html',search=search))
+        return res
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+
